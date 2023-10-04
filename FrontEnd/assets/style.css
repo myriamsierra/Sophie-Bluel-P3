@@ -184,7 +184,8 @@ margin: auto;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
 
-input[type="submit"]{
+input[type="submit"],
+.modale-add-btn{
 	font-family: 'Syne';
 	font-weight: 700;
 	color: white;
@@ -195,7 +196,8 @@ input[type="submit"]{
 	border-radius: 60px ;
 }
 
-input[type="submit"]:hover{
+input[type="submit"]:hover,
+.modale-add-btn:hover{
 	background-color: #0E2F28;
 }
 
@@ -294,3 +296,205 @@ main, header,footer{
 .hidden{
 	display:none;
 }
+
+/****************** MODALLE SUPPRIMER PHOTO********************************/
+body{
+	position: relative; 
+	z-index: 1;
+}
+.background{
+	display: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: 2;
+	background: rgba(0, 0, 0, 0.30);
+}
+
+.modale-close-btn,.modale-img i,.modale-add-btn {
+	cursor: pointer;
+}
+
+.modale-delete{
+	display: none;
+	width: 630px;	
+	margin: auto;
+	border-radius: 10px;
+	top: 480px;
+	right: 600px;
+	background-color: white;
+	position: absolute;
+	z-index: 3;
+}
+
+.modale-close-btn {
+	display: block;
+	margin:30px;
+	text-align: end;
+	font-size: 24px;
+	margin-bottom: 0;	
+}
+
+.modale-delete h2{
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 50px;
+	font-family: 'Work Sans';
+	color: black;
+	font-weight: 400;
+}
+
+.modale-img{	
+	width: 70%;
+	margin: auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 15px;
+}
+
+.modale-img figure{
+	position: relative;
+}
+
+.modale-img img{
+	width: 100%;
+}
+.modale-img figcaption{
+	width: 11px;
+	height: 9px;
+	border-radius: 10px;
+}
+
+.modale-img i {
+	display: block;
+	top: 4px;
+	right: 4px;
+	padding: 3px;
+	font-size: 11px;
+	color: white;
+	background-color: black;
+	position: absolute;
+	z-index: 5;	
+	border-radius: 3px;
+}
+
+.modale-border{
+	border: 1px solid #B3B3B3;
+	width: 70%;
+	margin: auto;
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+
+.modale-add-btn{
+	display: block;
+	width: 237px;
+	height: 36px;
+	outline: none;
+	border: none;
+	margin-bottom: 50px;
+}
+
+
+
+
+
+/* body{
+	position: relative;
+}
+
+.modale{
+	border-radius: 10px;
+	background-color: white;
+	width: 630px;	
+	margin: auto;
+	border:2px solid red;
+	display:flex;
+	flex-direction: column;
+	position: absolute;
+	z-index: 4;	
+	top: 480px;
+	right: 200px;
+	display: none;	
+}
+
+.modale .close-btn {
+	display: block;
+	margin:30px;
+	text-align: end;
+	font-size: 24px;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+.modale h3{
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+.modale-gallery{	
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+	grid-column-gap: 10px;
+	grid-row-gap: 15px;
+	width: 70%;
+	margin: auto;
+	position: relative;
+}
+
+.modale-gallery figure{
+	position: relative;
+}
+
+.contenair-modale figcaption{
+	width: 11px;
+	height: 9px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	z-index: 5;	
+}
+
+.modale-gallery img{
+	width: 100%;
+}
+
+.modale-gallery i{
+	position: absolute;
+	top: 4px;
+	right: 4px;
+	padding: 3px;
+	font-size: 11px;
+	color: white;
+	background-color: black;
+	cursor: pointer;
+}
+
+.border{
+	border: 1px solid #B3B3B3;
+	width: 70%;
+	margin: auto;
+	margin-top: 60px;
+	margin-bottom: 30px;
+}
+.modale-btn{
+	display: block;
+	margin: auto;
+	font-family: 'Syne';
+	font-weight: 700;
+	font-size: 14px;
+	color: white;
+	background-color: #1D6154;
+	width: 237px;
+	text-align: center;
+	border-radius: 60px ;
+	height: 36px;
+	outline: none;
+	border: none;
+	margin-bottom: 50px;
+	cursor: pointer;
+} */
