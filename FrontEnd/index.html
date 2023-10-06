@@ -74,13 +74,50 @@
 			<i class="modale-close-btn fa-solid fa-xmark"></i>
 			<h2>Galerie photo</h2>
 			<div class="modale-img">
-				
+				<!--  notre gallery en javascript-->
 			</div>
 			<div class ="modale-border"></div>
 			<button class="modale-add-btn" type="submit">Ajouter une photo</button>
 		</div>
 	</section>
+	<section>
+		<div class="modale-add">
+			<div class="modale-add-icons">
+				<i class="modaleAdd-return-btn fa-solid fa-arrow-left"></i>
+				<i class="modaleAdd-close-btn fa-solid fa-xmark"></i>	
+			</div>
+			<h2>Ajout photo</h2>
+			<div class="add-containers">
+				<i class=" icone-img fa-regular fa-image"></i>
+				<div class="image-added">
+					<!-- creer en javascript -->
+				</div>
+				
+				<p class="para-modale">jpg.png : 4mo max</p>
+			</div>
+			
+			<form class="modale-add-form" action="#" method="post" enctype="multipart/form-data">
+				<label for="imageUpload" class="image-btn">+ Ajouter photo</label>
+				<input type="file" id="imageUpload" accept="image/*" name="image">	
+				<label for="modale-add-title">Titre</label>
+				<input type="text" name="title" id="modale-add-title">
+				
+				<label for="categorie-form">Catégories</label>
+				<select name="category" id="categorie-form">
+					<!-- <option value="">Hotel & restaurants</option>
+  					<option value="">Objets</option>
+  					<option value="">Appartements</option> -->
+				</select>
+				
+				<div class ="modale-border"></div>
+				
+				<input class="modale-add-submit" type="submit" value="Valider">
+			</form>
+
+		</div>
+	</section>
 </main>
+
 
 <footer>
 	<nav>

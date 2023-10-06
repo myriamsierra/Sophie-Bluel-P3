@@ -146,22 +146,27 @@ li a:hover {
 }
 /*****************ajout de la classe login-form********************************** */
 #contact,
-.login-form {
+.login-form{
 	width: 50%;
-margin: auto;
+	margin: auto;
 }
 
 #contact > *,
-.login-form > * {
+.login-form > * ,
+.modale-add-form > *{
 	text-align: center;
 
 }
+
 #contact h2,
-.login-form h2{
+.login-form h2,
+.modale-add-form h2{
 	margin-bottom: 20px;
 }
+
 #contact form, 
-.login-form form {
+.login-form form,
+.modale-add-form  {
 	text-align: left;
 	margin-top:30px;
 	display: flex;
@@ -169,16 +174,19 @@ margin: auto;
 }
 
 #contact input,
-.login-form input {
+.login-form input,
+.modale-add-form input {
 	height: 50px;
 	font-size: 1.2em;
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
 }
+
 #contact label,
 .login-form label{
 	margin: 2em 0 1em 0;
 }
+
 #contact textarea {
 	border: none;
 	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
@@ -226,10 +234,10 @@ footer nav ul {
 /*************** CREATION DES BTN FILTRES *********************/
 
 .filter-gallery{
-width: 50%;
+width: 40%;
 margin: auto;
 display: flex;
-justify-content: space-between;
+justify-content: space-around;
 gap:10px;
 margin-bottom: 40px;
 }
@@ -238,7 +246,7 @@ margin-bottom: 40px;
 	width: auto;
 	padding-left:20px;
 	padding-right: 20px;
-	margin : 2em auto ;
+	margin : 0 ;
 	text-align: center;
 	height: 37px;
 	text-align: center;
@@ -397,6 +405,193 @@ body{
 	border: none;
 	margin-bottom: 50px;
 }
+
+/**********MODALE AJOUT PHOTO************************/
+
+.modale-add{
+	width: 630px;	
+	margin: auto;
+	border-radius: 10px;
+	top: 480px;
+	right: 600px;
+	background-color: white;
+	display: none;
+	top: 480px;
+	right: 600px;
+	background-color: white;
+	position: absolute;
+	z-index: 3;
+
+}
+
+.modale-add-icons{
+	display: flex;
+	justify-content: space-between;
+}
+
+.modale-add-icons i{
+	font-size: 24px;
+	margin:30px;
+}
+
+.modale-add h2{
+	font-size: 26px;
+	text-align: center;
+	margin-bottom: 50px;
+	font-family: 'Work Sans';
+	color: black;
+	font-weight: 400;
+}
+
+.add-containers{
+	width: 60%;
+	margin:auto;
+	background-color: #E8F1F6;
+	padding: 20px;
+}
+
+.add-containers i {
+	display: block;
+	text-align: center;
+	font-size: 5rem;
+	color:#B9C5CC;
+	margin-bottom: 13px;
+}
+
+.add-containers label{
+	width: 45%;
+	margin: auto;
+	background-color: #B9C5CC;
+	color:#306685;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 500;
+	display: block;
+	outline: none;
+	border: none;
+	border-radius: 50px;
+	text-align: center;
+	padding:15px 10px;
+	
+}
+.add-containers #imageUpload{
+	display: none;
+}
+
+.add-containers p{
+	margin-top:10px;
+	text-align: center;
+	color: #444;
+	font-family: 'Work Sans';
+	font-size: 10px;	
+}
+.image-added{
+	text-align: center;
+	
+}
+.image-added img{
+	width: 129px;
+	height: 193px;
+}
+
+.modale-add-form{
+	width: 65%;
+	margin: auto;
+}
+
+.modale-add-form label{
+	text-align: start;
+	margin: 15px 0px;
+	padding: 0;
+	text-align: left;
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+.modale-add-form input{
+	color: #444;
+ 	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+	text-align: start;
+}
+
+.modale-add-form select{
+	height: 50px;
+	font-size: 1.2em;
+	border: none;
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+	font-family: 'Work Sans';
+	font-size: 14px;
+}
+
+.modale-add-form option{
+	text-align: left;
+	color: #444;
+	font-family: 'Work Sans';
+	font-size: 14px;
+	font-weight: 400;
+}
+	
+.modale-add-form .modale-border{
+	margin-top: 50px;
+	width: 100%;
+}
+
+.modale-add-form input[type="submit"]{
+	width: 237px;
+	height: 36px;	
+	background-color: #A7A7A7;
+	font-size: 14px;
+	font-family: 'Syne';
+	margin-top: 10px;
+	text-align: center;
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

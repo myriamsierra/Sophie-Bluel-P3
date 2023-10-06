@@ -73,10 +73,10 @@ console.log(localStorage.getItem("token"))
 const userToken =localStorage.getItem("token")
 
 
-const editModeBanner = document.querySelector (".admin-banner")
-const editModeBtn = document.querySelector (".admin-btn-modifier")
-const userlogin = document.querySelector (".admin-login")
-const userlogout = document.querySelector (".admin-logout")
+const editModeBanner = document.querySelector(".admin-banner")
+const editModeBtn = document.querySelector(".admin-btn-modifier")
+const userlogin = document.querySelector(".admin-login")
+const userlogout = document.querySelector(".admin-logout")
 
 
 
@@ -142,7 +142,7 @@ closeModaleBtn.addEventListener('click',() => {
     background.style.display = "none";
 }) 
 
-//10 SUPPRIMER LES IMG AVEC UN BOUTTON 
+//10 SUPPRIMER LES IMG AVEC UN BOUTTON///////////////////////////////////////////////////
 
 function deleteImg(workId){
     fetch(`http://localhost:5678/api/works/${workId}`, {
@@ -168,11 +168,230 @@ function createNewGallery(deletedWorkId) {
            }
     });
 }    
-
+//11 OPEN MODALE ADD/////////////////////////////////////////////////////////////// 
+  const BtnOpenModaleAdd = document.querySelector(".modale-add-btn") 
+  const ModaleAdd = document.querySelector(".modale-add") 
     
-    
-    
+  BtnOpenModaleAdd.addEventListener('click',() => {
+    deleteModale.style.display= "none";
+    background.style.display = "block";
+    ModaleAdd.style.display = "block"
+}) 
         
+//11 OPEN MODALE ADD/////////////////////////////////////////////////////////////// 
+const BtnCloseModaleAdd = document.querySelector(".modaleAdd-close-btn") 
+
+BtnCloseModaleAdd.addEventListener('click',() => {
+    deleteModale.style.display= "none";
+    background.style.display = "none";
+    ModaleAdd.style.display = "none"
+}) 
+
+//11 RETURN MODALE ADD/////////////////////////////////////////////////////////////// 
+const BtnreturnModaleAdd = document.querySelector(".modaleAdd-return-btn") 
+
+BtnreturnModaleAdd.addEventListener('click',() => {
+    deleteModale.style.display= "block";
+    background.style.display = "block";
+    ModaleAdd.style.display = "none"
+}) 
+//12 CLICK EN DEHORS DE LA MODALE
+background.addEventListener('click',()=>{
+    deleteModale.style.display= "none";
+    ModaleAdd.style.display = "none";
+    background.style.display = "none";
+})
+
+
+
+
+
+
+//12 RECUPER L IMAGE AJOUTER ET LA METTRE DANS NOTRE MODALE///////////////////////////
+const imageUpload = document.getElementById('imageUpload');
+const imageUploadBox = document.querySelector('.image-added');
+const imageIcon = document.querySelector('.icone-img')
+const btnForAddImage = document.querySelector(".image-btn")
+const modalePara = document.querySelector(".para-modale")
+
+imageUpload.addEventListener('change', function () {
+       if (this.files.length > 0) {
+           const selectedFile = this.files[0];
+           const imageUrL = URL.createObjectURL(selectedFile);
+           const imageAdded = document.createElement('img');
+           imageAdded.src = imageUrL;
+           imageUploadBox.innerHTML = '';
+           imageUploadBox.appendChild(imageAdded);
+           imageIcon.style.display="none";
+           btnForAddImage.style.display= "none";
+           modalePara.style.display= "none";
+       }
+   });
+
+//CHANGER LA COULEUR DU BOUTTON//////////////////////////////////////////////////////////
+const inputFile = document.querySelector("#imageUpload")
+const inputTitle = document.querySelector('#modale-add-title')
+
+function SubmitBtnColor() {
+    if (inputFile.files[0] && inputTitle.value !== "") {
+        submitBtn.style.background="#1D6154"
+    }else{
+        submitBtn.style.background=""
+    }
+}
+
+inputFile.addEventListener("input",SubmitBtnColor);
+inputTitle.addEventListener("input",SubmitBtnColor);
+
+
+
+
+
+
+//13 IMPORTER LES CATEGORIE DANS LE FORMULAIRE
+const selectForm = document.getElementById("categorie-form")
+const SubmitForm = document.querySelector(".modale-add-submit")
+
+function createSelectGategorie(Allcategory){
+    Allcategory.forEach(category => {
+        const optionGategorie = document.createElement('option');
+        optionGategorie.innerText= category.name;
+        optionGategorie.value = category.id;
+        selectForm.appendChild(optionGategorie);    
+    });  
+}
+
+fetch("http://localhost:5678/api/categories")
+.then(reponse => reponse.json()) 
+.then(Allcategory => { 
+    createSelectGategorie(Allcategory);
+}) 
+
+//14 si on a toute nos infos le btn est vert sinon on a un prompt d'alert
+
+const submitBtn = document.querySelector('.modale-add-submit');
+const modaleAddForm = document.querySelector('.modale-add-form');
+
+
+
+  
+    // }
+///////////////////////////////////////////////////////////////////////////////////////
+  
+
+
+
+modaleAddForm.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+
+    const title = document.querySelector('#modale-add-title').value;
+    const category =  document.getElementById('categorie-form').value;      
+    const imageFile = document.getElementById('imageUpload').files[0];
+    
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("category", category);
+    formData.append("image", imageFile);
+    
+    
+    console.log('title:', title);
+    console.log('category:', category);
+    console.log('image File:', imageFile);
+    
+    
+    if (!title || !category || !imageFile) {
+        console.error("Les éléments du formulaire n'ont pas été trouvés.");
+      } else {
+       submitBtn.style.background="red"
+      }
+
+
+    
+  fetch('http://localhost:5678/api/works', {
+        method: "POST",    
+        headers: {
+            
+            'Authorization': `Bearer ${userToken}` 
+        },
+        body: formData,
+    })
+    
+    .then((response) => {
+      if (response.ok) {
+        window.location.href = 'index.html';
+        return response.json();
+      } else {
+        // La requête a échoué, vous pouvez gérer les erreurs ici.
+        throw new Error("Erreur lors de l'envoi des données.");
+      }
+    })
+    
+    .then((data) => {
+      
+      console.log("Réponse de l'API :", data);
+   
+    })
+    
+    .catch((error) => {
+      
+      console.error("Erreur :", error);
+    });
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// const title = document.querySelector('#modale-add-title').value;
+// const category = document.getElementById('categorie-form').value;
+// const imageFile = document.getElementById('imageUpload').files[0];
+
+// const formData = new FormData();
+// formData.append("title", title);
+// formData.append("category", category);
+
+// // Créez un objet FileReader pour lire le fichier en tant que blob
+// const reader = new FileReader();
+
+// // Configurez une fonction de rappel pour gérer la lecture du fichier
+// reader.onload = function () {
+//   const imageBlob = new Blob([reader.result], { type: imageFile.type });
+//   formData.append("image", imageBlob, imageFile.name);
+
+//   // Maintenant, vous pouvez envoyer formData avec l'image en tant que blob à votre API
+//   fetch('http://localhost:5678/api/works', {
+//     method: "POST",
+//     headers: {
+//       'Authorization': `Bearer ${userToken}`
+//     },
+//     body: formData,
+//   })
+//   .then((response) => {
+//     if (response.ok) {
+//       // La requête a réussi, vous pouvez gérer la réponse ici.
+//       return response.json();
+//     } else {
+//       // La requête a échoué, vous pouvez gérer les erreurs ici.
+//       throw new Error("Erreur lors de l'envoi des données.");
+//     }
+//   })
+//   .then((data) => {
+//     console.log("Réponse de l'API :", data);
+//   })
+//   .catch((error) => {
+//     console.error("Erreur :", error);
+//   });
+// };
+
+// // Lisez le contenu du fichier en tant que blob
 
 
 
@@ -186,6 +405,113 @@ function createNewGallery(deletedWorkId) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+//14 RECUPER LES DONNES DE NOTRE FORM///////////////////////////
+// const newtitle = document.getElementById('modale-add-title');
+// const FormNewTitle = newtitle.value;
+// console.log(FormNewTitle);
+
+// const data = { email: email, password: password};
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// const formulaire = document.getElementById('monFormulaire');
+
+// formulaire.addEventListener('submit', function (e) {
+//     e.preventDefault(); // Empêche le comportement par défaut du formulaire
+
+//     const nom = document.getElementById('nom').value;
+//     const email = document.getElementById('email').value;
+
+//     // Vous pouvez maintenant utiliser les valeurs nom et email comme vous le souhaitez
+//     console.log('Nom :', nom);
+//     console.log('Email :', email);
+
+//     // Si vous souhaitez envoyer ces données à un serveur, vous pouvez utiliser fetch ou une autre méthode d'envoi de données.
+// });
+
+
+
+
+
+
+
+
+// function addNewImage(formData) {
+//     fetch('http://localhost:5678/api/works', {
+//         method: 'POST',
+//         headers: {
+//             'Authorization': `Bearer ${userToken}` // Assurez-vous que userToken est défini correctement
+//         },
+//         body: formData
+//     })
+    
+//     .then(response => {
+//         if (response.ok) {
+//             console.log("Image ajoutée avec succès !");
+//             // Ajoutez ici toute logique supplémentaire après l'ajout réussi de l'image.
+//         } else {
+//             console.error("Échec de l'ajout de l'image.");
+//             // Gérez l'échec de l'ajout d'image ici, affichez un message d'erreur, etc.
+//         }
+//     })
+//     .catch(error => {
+//         console.error("Erreur lors de la requête fetch :", error);
+//         // Gérez les erreurs
+//     })
+// }
+// addNewImage()
+
+// function addNewImage(formData) {
+//     const jsonData = {
+//         title: "test", // Remplacez par la valeur appropriée
+//         imageUrl: "test", // Remplacez par la valeur appropriée
+//         categoryId: "test" // Remplacez par la valeur appropriée
+//     };
+
+    // fetch('http://localhost:5678/api/works', {
+    //     method: 'POST',
+    //     headers: {
+    //         'Authorization': `Bearer ${userToken}`,
+    //         'Content type': 'application/json'
+    //     },
+    //     body: JSON.stringify(jsonData)
+    // })
+    // .then(response => {
+    //     if (response.status === 201) {
+    //         console.log("Image ajoutée avec succès !");
+    //         // Ajoutez ici toute logique supplémentaire après l'ajout réussi de l'image.
+    //     } else if (response.status === 400) {
+    //         console.error("Requête incorrecte. Vérifiez les données envoyées.");
+    //         // Gérez le cas où la requête est incorrecte.
+    //     } else if (response.status === 401) {
+    //         console.error("Non autorisé. Assurez-vous que vous avez un token d'authentification valide.");
+    //         // Gérez le cas où l'authentification échoue.
+    //     } else {
+    //         console.error("Erreur inattendue :", response.status);
+    //         // Gérez d'autres erreurs ici.
+    //     }
+    // })
+    // .catch(error => {
+    //     console.error("Erreur lors de la requête fetch :", error);
+    //     // Gérez les erreurs de requête fetch ici.
+    // });
+
+
+// Assurez-vous d'appeler addNewImage avec les données appropriées lorsque vous l'utilisez.
 
 
 
