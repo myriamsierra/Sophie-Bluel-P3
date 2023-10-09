@@ -1,6 +1,4 @@
-/* ***********STYLE PAR DEFAUT********************************** */
-
-
+/*//////////////////////////////GLOBAL RESET STYLE//////////////////////////////////////*/
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -23,7 +21,7 @@ time, mark, audio, video {
 }
 
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+footer, header, hgroup, menu, nav, section{
 	display: block;
 }
 body {
@@ -45,117 +43,80 @@ table {
 	border-spacing: 0;
 }
 
+a{
+	text-decoration:none;
+	color: black;
+}
+
+*{
+	box-sizing: border-box;
+	outline: none;
+	border: none;
+}
+/*/////////////////////////////////GLOBAL////////////////////////////////////////////////////////*/
 body {
 	font-family: 'Work Sans' ;
 	font-size: 14px;
 }
-/* on remplace la balise header par la class nav bar  */
-header  {
-	padding-top: 40px;
-	display: flex;
-	justify-content: space-between; 
-	margin: 50px 0;
+
+header,main,footer{
+	max-width: 1140px;
+	margin:auto;
 }
-section {
-	margin: 50px 0
+main,header,footer{
+	max-width: 1440px;
+	margin:auto;
 }
 
+header { 
+	max-width: 80%;
+	padding-left: 20%;
+	display: flex;
+	justify-content: space-between;
+}
+section,header {
+	margin: 50px 0;
+}
+
+#introduction img,.login-form a, .add-containers i,.modale-add-btn,.add-containers label,.modale-img i,.modale-close-btn{
+	display: block;
+}
+/*//////////////////////////////////TITLE/////////////////////////////////////////////////////////*/
 h1{
 	display: flex;
 	flex-direction: column;
-	font-family: 'Syne';
 	font-size: 22px;
 	font-weight: 800;
 	color: #B1663C
 }
+h1,h2{
+	font-family: 'Syne';
+}
 
-h1 > span {
-	font-family: 'Work Sans';
+h1 > span {	
 	font-size:10px;
 	letter-spacing: 0.1em;
 	padding-top: 5px;
-	font-weight: 400;
+}
+h1 > span,h3{
+	font-family: 'Work Sans';
 }
 
 h2{
-	font-family: 'Syne';
 	font-weight: 700;
 	font-size: 30px;
 	color: #1D6154
 }
-nav ul {
-	display: flex;
-	align-items: center;
-	list-style-type: none;
 
-}
-/*********************ajout de style************ */
-nav li a {
-	padding: 0 10px;
-	font-size: 1.2em;
-	color:black;
-	text-decoration: none;
+h3{
+	font-size: 26px;
+	margin-bottom: 50px;
+	color: black;
+	font-weight: 400;
 }
 
-li a:hover {
-	color: #B1663C;
-}
-/*********************ajout de style************ */
-
-#introduction {
-	display: flex;
-	align-items: center;
-}
-#introduction figure {
-	flex: 1
-}
-#introduction img {
-	display: block;
-	margin: auto;
-	width: 80%;
-}
-
-#introduction article {
-	flex: 1
-}
-#introduction h2 {
-	margin-bottom: 1em;
-}
-
-#introduction p {
-	margin-bottom: 0.5em;
-}
-#portfolio h2 {
+#portfolio h2,h3{
 	text-align: center;
-	margin-bottom: 1em;
-}
-.gallery {
-	width: 100%;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-column-gap: 20px;
-	grid-row-gap: 20px;
-}
-
-.gallery img {
-	width: 100%;
-}
-/************* rectification des espaces de ma gallery *************** */
-.gallery figcaption{
-	padding-top: 7px;;
-}
-/*****************ajout de la classe login-form********************************** */
-#contact,
-.login-form{
-	width: 50%;
-	margin: auto;
-}
-
-#contact > *,
-.login-form > * ,
-.modale-add-form > *{
-	text-align: center;
-
 }
 
 #contact h2,
@@ -164,112 +125,102 @@ li a:hover {
 	margin-bottom: 20px;
 }
 
-#contact form, 
-.login-form form,
-.modale-add-form  {
-	text-align: left;
-	margin-top:30px;
-	display: flex;
-	flex-direction: column;
+#introduction h2,#portfolio h2 {
+	margin-bottom: 1em;
 }
-
-#contact input,
-.login-form input,
-.modale-add-form input {
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+#portfolio h2 {
+	margin-top: 100px;
 }
-
-#contact label,
-.login-form label{
-	margin: 2em 0 1em 0;
-}
-
-#contact textarea {
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-}
-
-input[type="submit"],
-.modale-add-btn{
-	font-family: 'Syne';
-	font-weight: 700;
-	color: white;
-	background-color: #1D6154;
-	margin : 2em auto ;
-	width: 180px;
-	text-align: center;
-	border-radius: 60px ;
-}
-
-input[type="submit"]:hover,
-.modale-add-btn:hover{
-	background-color: #0E2F28;
-}
-
 .login-form h2{
-	margin-top: 160px;
+	margin-top: 150px;
+}
+/*//////////////////////////////////HEADER FOOTER/////////////////////////////////////////////////////////*/
+nav ul {
+	display: flex;
+	align-items: center;
+	list-style-type: none;
+}
+
+nav li a {
+	padding: 0 10px;
+	font-size: 1.2em;
+}
+
+li a:hover {
+	color: #B1663C;
+}
+footer nav ul {
+	justify-content: flex-end;
+	margin: 2em
+}
+/*//////////////////////////////////INTRODUCTION//////////////////////////////////////////////*/
+#introduction,#introduction img,#introduction p{
+	width: 80%;
+}
+#introduction,#introduction img,.gallery{
+	margin: auto;
+}
+
+#introduction {
+	display: flex;
+	align-items: center;
+	margin-top: 80px;
+}
+#introduction figure,#introduction article {
+	flex: 1
+}
+
+#introduction p {
+	margin-bottom: 1em;
+}
+
+.gallery{
+	grid-column-gap: 20px;
+	grid-row-gap: 20px;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+.gallery,.modale-img {
+	width: 73%;
+	display: grid;	
+}
+
+.gallery img {
+	width: 100%;
+}
+
+.gallery figcaption{
+	padding-top: 7px;;
+}
+/*//////////////////////////////////LOGIN.HTML/////////////////////////////////////////////*/
+#contact,
+.login-form{
+	width: 50%;
+	margin: auto;
 }
 
 .login-form a {
-	display: block;
-	text-align: center;
 	text-decoration: underline;
-	cursor: pointer;
-	color: black;
 }
 
 .login-footer{
 	margin-top: 20%;
 }
-
-footer nav ul {
-	display: flex;
-	justify-content: flex-end;
-	margin: 2em
-}
-
-/*************** CREATION DES BTN FILTRES *********************/
-
+/*//////////////////////////////////FILTER GALLERY/////////////////////////////////////////////*/
 .filter-gallery{
-width: 40%;
-margin: auto;
-display: flex;
-justify-content: space-around;
-gap:10px;
-margin-bottom: 40px;
+	width: 40%;
+	margin: auto;
+	display: flex;
+	justify-content: space-around;
+	gap:10px;
+	margin-bottom: 40px;
 }
 
-.filter-gallery button{
-	width: auto;
-	padding-left:20px;
-	padding-right: 20px;
-	margin : 0 ;
+#contact > *,.login-form > *,.login-form a{
 	text-align: center;
-	height: 37px;
-	text-align: center;
-	border-radius: 60px ;
-	font-family: 'Syne';
-	font-weight: 700;
-	color:#1D6154;
-	border: 1px solid #1D6154;
-	background-color: white;
 }
 
-.filter-gallery button:hover,
-.filter-gallery button:focus{
-	color:white;
-	background-color: #1D6154;
-}
-
-/************************LOGIN ADMIN******************************************/
-main, header,footer{
-	max-width: 1440px;
-	margin:auto;
-}
-
+/*//////////////////////////////////USER INTERFACE//////////////////////////////////////////////*/
 .admin-banner{
 	width: 100%;
 	height: 59px;
@@ -278,6 +229,7 @@ main, header,footer{
 	text-align: center;
 	font-family: 'Work Sans';
 }
+
 .admin-banner i {
 	font-size: 16px;
 	margin-right: 15px ;
@@ -286,32 +238,13 @@ main, header,footer{
 .admin-banner p {
 	padding: 20px;
 }
-
-.admin-btn-modifier{
-	color:black;
-	font-size: 14px;
-	font-weight: 400;
-	padding-left: 15px;
-	padding-bottom: 5px;
-	vertical-align: middle;
-	font-family: 'Work Sans';
-}
-
-.admin-btn-modifier i {
-	padding-right: 5px;
-}
-
-.hidden{
-	display:none;
-}
-
-/****************** MODALLE SUPPRIMER PHOTO********************************/
+/*//////////////////////////////////MODALE FOR DELETE//////////////////////////////////////////////*/
 body{
 	position: relative; 
 	z-index: 1;
 }
+
 .background{
-	display: none;
 	margin: 0;
 	padding: 0;
 	width: 100%;
@@ -321,43 +254,20 @@ body{
 	background: rgba(0, 0, 0, 0.30);
 }
 
-.modale-close-btn,.modale-img i,.modale-add-btn {
-	cursor: pointer;
-}
-
 .modale-delete{
-	display: none;
 	width: 630px;	
 	margin: auto;
 	border-radius: 10px;
-	top: 480px;
-	right: 600px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 	background-color: white;
-	position: absolute;
+	position: fixed;
 	z-index: 3;
 }
 
-.modale-close-btn {
-	display: block;
-	margin:30px;
-	text-align: end;
-	font-size: 24px;
-	margin-bottom: 0;	
-}
-
-.modale-delete h2{
-	font-size: 26px;
-	text-align: center;
-	margin-bottom: 50px;
-	font-family: 'Work Sans';
-	color: black;
-	font-weight: 400;
-}
-
 .modale-img{	
-	width: 70%;
 	margin: auto;
-	display: grid;
 	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	grid-column-gap: 10px;
 	grid-row-gap: 15px;
@@ -377,7 +287,6 @@ body{
 }
 
 .modale-img i {
-	display: block;
 	top: 4px;
 	right: 4px;
 	padding: 3px;
@@ -396,63 +305,37 @@ body{
 	margin-top: 60px;
 	margin-bottom: 30px;
 }
-
-.modale-add-btn{
-	display: block;
-	width: 237px;
-	height: 36px;
-	outline: none;
-	border: none;
-	margin-bottom: 50px;
-}
-
-/**********MODALE AJOUT PHOTO************************/
-
+/*//////////////////////////////////MODALE FOR ADD//////////////////////////////////////////////*/
 .modale-add{
-	width: 630px;	
-	margin: auto;
-	border-radius: 10px;
-	top: 480px;
-	right: 600px;
-	background-color: white;
-	display: none;
-	top: 480px;
-	right: 600px;
-	background-color: white;
-	position: absolute;
-	z-index: 3;
-
-}
-
-.modale-add-icons{
-	display: flex;
-	justify-content: space-between;
-}
-
-.modale-add-icons i{
-	font-size: 24px;
-	margin:30px;
-}
-
-.modale-add h2{
-	font-size: 26px;
-	text-align: center;
-	margin-bottom: 50px;
 	font-family: 'Work Sans';
-	color: black;
-	font-weight: 400;
+	font-size :16px;
+	width: 630px;	
+	border-radius: 10px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	position: fixed;
+	z-index: 3;
+}
+
+.modale-add,
+.add-containers,.add-containers label,
+.modale-add-form{
+	margin: auto;
+}
+
+.add-containers *{
+	text-align: center;
 }
 
 .add-containers{
 	width: 60%;
-	margin:auto;
 	background-color: #E8F1F6;
 	padding: 20px;
 }
 
 .add-containers i {
-	display: block;
-	text-align: center;
 	font-size: 5rem;
 	color:#B9C5CC;
 	margin-bottom: 13px;
@@ -460,35 +343,18 @@ body{
 
 .add-containers label{
 	width: 45%;
-	margin: auto;
 	background-color: #B9C5CC;
-	color:#306685;
-	font-family: 'Work Sans';
-	font-size: 14px;
+	color:#306685;		
 	font-weight: 500;
-	display: block;
-	outline: none;
-	border: none;
 	border-radius: 50px;
-	text-align: center;
 	padding:15px 10px;
-	
-}
-.add-containers #imageUpload{
-	display: none;
 }
 
 .add-containers p{
 	margin-top:10px;
-	text-align: center;
-	color: #444;
-	font-family: 'Work Sans';
 	font-size: 10px;	
 }
-.image-added{
-	text-align: center;
-	
-}
+
 .image-added img{
 	width: 129px;
 	height: 193px;
@@ -496,200 +362,147 @@ body{
 
 .modale-add-form{
 	width: 65%;
-	margin: auto;
-}
-
-.modale-add-form label{
-	text-align: start;
-	margin: 15px 0px;
-	padding: 0;
-	text-align: left;
-	font-family: 'Work Sans';
-	font-size: 14px;
-}
-.modale-add-form input{
-	color: #444;
- 	font-family: 'Work Sans';
-	font-size: 14px;
-	font-weight: 400;
-	text-align: start;
-}
-
-.modale-add-form select{
-	height: 50px;
-	font-size: 1.2em;
-	border: none;
-	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
-	font-family: 'Work Sans';
-	font-size: 14px;
-}
-
-.modale-add-form option{
-	text-align: left;
-	color: #444;
-	font-family: 'Work Sans';
-	font-size: 14px;
-	font-weight: 400;
 }
 	
 .modale-add-form .modale-border{
 	margin-top: 50px;
 	width: 100%;
 }
+/*//////////////////////////////////SUBMIT BUTTON//////////////////////////////////////////////*/
+input[type="submit"],.admin-btn-modifier,.filter-gallery button,.modale-add-icons,
+.image-btn,.modale-close-btn,.modale-img i,.modale-add-btn{
+	cursor:pointer
+}
 
-.modale-add-form input[type="submit"]{
-	width: 237px;
-	height: 36px;	
-	background-color: #A7A7A7;
-	font-size: 14px;
+input[type="submit"],.modale-add-btn,.filter-gallery button{
 	font-family: 'Syne';
-	margin-top: 10px;
+	font-weight: 700;
 	text-align: center;
+	border-radius: 60px ;
+}
+
+input[type="submit"],
+.modale-add-btn{
 	color: white;
+	background-color: #1D6154;
+	margin : 2em auto ;
+	width: 180px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* body{
-	position: relative;
+input[type="submit"]:hover,
+.modale-add-btn:hover{
+	background-color: #0E2F28;
 }
 
-.modale{
-	border-radius: 10px;
+.modale-add-form input[type="submit"]{	
+	background-color: #A7A7A7;
+	margin-top: 10px;
+	color: white;
+	text-align: center;
+}
+
+.modale-add-form input[type="submit"],.modale-add-btn{
+	width: 237px;
+	height: 36px;
+}
+
+.filter-gallery button{
+	width: auto;
+	padding:0px 20px 0px 20px;
+	margin : 0 ;
+	height: 37px;
+	color:#1D6154;
+	border: 1px solid #1D6154;
 	background-color: white;
-	width: 630px;	
-	margin: auto;
-	border:2px solid red;
-	display:flex;
-	flex-direction: column;
-	position: absolute;
-	z-index: 4;	
-	top: 480px;
-	right: 200px;
-	display: none;	
 }
 
-.modale .close-btn {
-	display: block;
+.filter-gallery button:hover,
+.filter-gallery button:focus{
+	color:white;
+	background-color: #1D6154;
+}
+/*//////////////////////////////////DELETE ADD OPEN CLOSE RETURN//////////////////////////////////////////////*/
+.admin-btn-modifier{
+	color:black;
+	font-size: 14px;
+	font-weight: 400;
+	padding-left: 15px;
+	vertical-align:middle;
+	font-family: 'Work Sans';
+}
+
+.admin-btn-modifier i {
+	padding-right: 5px;
+}
+
+.modale-close-btn {
 	margin:30px;
 	text-align: end;
 	font-size: 24px;
-	margin-bottom: 0;
-	cursor: pointer;
+	margin-bottom: 0;	
 }
 
-.modale h3{
-	font-size: 26px;
-	text-align: center;
+.modale-add-icons{
+	display: flex;
+	justify-content: space-between;
+}
+
+.modale-add-icons i{	
+	font-size: 24px;
+	margin:30px;
+}
+
+.modale-add-btn{
 	margin-bottom: 50px;
-}
-
-.modale-gallery{	
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-	grid-column-gap: 10px;
-	grid-row-gap: 15px;
-	width: 70%;
-	margin: auto;
-	position: relative;
-}
-
-.modale-gallery figure{
-	position: relative;
-}
-
-.contenair-modale figcaption{
-	width: 11px;
-	height: 9px;
-	position: absolute;
-	top: 0;
-	right: 0;
-	z-index: 5;	
-}
-
-.modale-gallery img{
-	width: 100%;
-}
-
-.modale-gallery i{
-	position: absolute;
-	top: 4px;
-	right: 4px;
-	padding: 3px;
-	font-size: 11px;
-	color: white;
-	background-color: black;
-	cursor: pointer;
-}
-
-.border{
-	border: 1px solid #B3B3B3;
-	width: 70%;
-	margin: auto;
-	margin-top: 60px;
-	margin-bottom: 30px;
-}
-.modale-btn{
-	display: block;
-	margin: auto;
-	font-family: 'Syne';
-	font-weight: 700;
-	font-size: 14px;
-	color: white;
-	background-color: #1D6154;
-	width: 237px;
 	text-align: center;
-	border-radius: 60px ;
-	height: 36px;
-	outline: none;
-	border: none;
-	margin-bottom: 50px;
-	cursor: pointer;
-} */
+}
+/*//////////////////////////////////FORMULAIRE/////////////////////////////////////////////////*/
+.add-containers p,.modale-add-form input,.modale-add-form select,.modale-add-form option{
+	color: #444444;
+}
+
+.modale-add-form label,.modale-add-form input,.modale-add-form option,
+#contact form, .login-form form,.modale-add-form{
+	text-align: start;
+}
+
+#contact > *,.login-form > *,.login-form a{
+	text-align: center;
+}
+
+#contact form, .login-form form,.modale-add-form  {
+	margin-top:30px;
+	display: flex;
+	flex-direction: column;
+}
+
+.modale-add-form input,.modale-add-form select{
+	font-family: 'Work Sans';
+	font-size: 16px;
+}
+
+#contact textarea,.modale-add-form select,#contact input,.login-form input,.modale-add-form input{
+	box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.09);
+}
+
+.modale-add-form select,#contact input,.login-form input,.modale-add-form input {
+	height: 50px;	
+}
+
+#contact input,.login-form input,.modale-add-form input {
+	font-size: 1.2em;
+}
+
+#contact label,.login-form label{
+	margin: 2em 0 1em 0;
+}
+
+.modale-add-form label{
+	color:#3D3D3D;
+	margin: 15px 0px;
+}
+
+/*//////////////////////////////////HIDDEN PART//////////////////////////////////////////////*/
+.hidden,.add-containers #imageUpload{
+	display:none;
+}
